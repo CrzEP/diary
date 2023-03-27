@@ -1,1 +1,39 @@
+spring:
+  application:
+    name: diary
+  messages:
+    encoding: UTF-8
+    basename: i18n/messages
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/diary?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+    database: mysql
+    # 每次启动更改数据表结构
+    hibernate:
+      ddl-auto: update
 
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 16602
+  servlet:
+    context-path: /diary
+
+# 个人信息
+personal:
+  app-tag: diaryService
+  # 邮件是否可用
+  email-enable: true
+  # 接收信息的邮箱账户
+  email-account: sucrzep@163.com
+  # 接收信息邮箱的校验码
+  email-password: HGIOHCULXBROKXVW
+  #
+  email-file-dir: D:/temp/
