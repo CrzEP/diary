@@ -1,9 +1,5 @@
 package com.dlg.diary.service;
 
-import com.dlg.diary.entity.EmailInfo;
-
-import java.util.List;
-
 /**
  *
  * @author lingui
@@ -21,9 +17,5 @@ public interface EmailService {
      */
     void sendEmail(String fromName, String receiveMailAccount, String title, String content);
 
-    /**
-     * 接受邮件
-     */
-    List<EmailInfo> receiveEmail();
 
 }

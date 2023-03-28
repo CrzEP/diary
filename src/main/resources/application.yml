@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   application:
     name: diary
   messages:
@@ -26,14 +28,3 @@ server:
   servlet:
     context-path: /diary
 
-# 个人信息
-personal:
-  app-tag: diaryService
-  # 邮件是否可用
-  email-enable: true
-  # 接收信息的邮箱账户
-  email-account: sucrzep@163.com
-  # 接收信息邮箱的校验码
-  email-password: HGIOHCULXBROKXVW
-  #
-  email-file-dir: D:/temp/

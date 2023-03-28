@@ -20,13 +20,18 @@ public class YmlConfigVal {
 
     @Value("${personal.app-tag}")
     String appTag;
-    @Value("${personal.email-file-dir}")
-    String emailFileDir;
     @Value("${personal.email-account}")
     String emailAccount;
     @Value("${personal.email-password}")
     String emailPassword;
     @Value("${personal.email-enable}")
     Boolean emailEnable;
+    @Value("${personal.file-dir}")
+    String fileDir;
+    @Value("${personal.file-main-txt-dir}")
+    String fileMainTxtDir;
+    @Value("${personal.file-ext-file-dir}")
+    String fileExtFileDir;
+
 
 }

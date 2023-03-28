@@ -1,4 +1,4 @@
-package com.dlg.diary.domain.email;
+package com.dlg.diary.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

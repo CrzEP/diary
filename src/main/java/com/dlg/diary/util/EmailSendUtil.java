@@ -1,6 +1,6 @@
 package com.dlg.diary.util;
 
-import com.dlg.diary.domain.email.EmailAccount;
+import com.dlg.diary.domain.EmailAccount;
 import jakarta.mail.Session;
 import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;

@@ -1,0 +1,15 @@
+# 个人信息
+personal:
+  app-tag: diaryService
+  # 邮件是否可用
+  email-enable: true
+  # 接收信息的邮箱账户
+  email-account: sucrzep@163.com
+  # 接收信息邮箱的校验码
+  email-password: HGIOHCULXBROKXVW
+  # 文件储存位置
+  file-dir: D:/temp/
+  # 主文本文件储存位置
+  file-main-txt-dir: D:/temp/
+  # 附属文件位置
+  file-ext-file-dir: D:/temp/
