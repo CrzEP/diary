@@ -1,8 +1,10 @@
 package com.dlg.diary.controller;
 
+import com.dlg.diary.common.Result;
 import com.dlg.diary.common.annotation.ApiLog;
 import com.dlg.diary.exception.ParamsException;
 import com.dlg.diary.service.DiaryService;
+import com.dlg.diary.service.FileService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.FileSystemResource;
@@ -33,11 +35,14 @@ public class FileController {
     @Resource
     DiaryService diaryService;
 
+    @Resource
+    FileService fileService;
+
     @RequestMapping(value = "/multipartform-data", method = {RequestMethod.POST})
     @ApiLog("获取文件")
     public ResponseEntity<FileSystemResource> multipartformdata(String filePath) {
         File file = new File(filePath);
-        if (!file.exists()){
+        if (!file.exists()) {
             throw ParamsException.paramNoMatch("文件路径不匹配");
         }
         HttpHeaders headers = new HttpHeaders();
@@ -56,10 +61,27 @@ public class FileController {
                 .body(new FileSystemResource(file));
     }
 
-    @RequestMapping(value="/saveDiary",headers = "content-type=multipart/form-data", method= {RequestMethod.POST})
+    @RequestMapping(value = "/saveDiary", headers = "content-type=multipart/form-data", method = {RequestMethod.POST})
     @ApiLog("保存日记")
-    public void uploadFiles(@RequestParam("diary")MultipartFile diary,@RequestParam("files") MultipartFile[] files){
-        diaryService.saveDiary(diary,files);
+    public void uploadFiles(@RequestParam("diary") MultipartFile diary, @RequestParam("files") MultipartFile[] files) {
+        diaryService.saveDiary(diary, files);
+    }
+
+    @RequestMapping(value = "/uploadFile", headers = "content-type=multipart/form-data", method = {RequestMethod.POST})
+    @ApiLog("上传文件")
+    public Result<String> uploadFiles(@RequestParam("file") MultipartFile diary) {
+        String path = fileService.saveExtFile(diary);
+        Result<String> result = new Result<>();
+        result.setData(path);
+        return result;
+    }
+
+    @RequestMapping(value = "/get", headers = "content-type=multipart/form-data", method = {RequestMethod.GET})
+    @ApiLog("上传文件")
+    public Result<String> get() {
+        Result<String> result = new Result<>();
+        result.setData(System.currentTimeMillis()+"");
+        return result;
     }
 
 }

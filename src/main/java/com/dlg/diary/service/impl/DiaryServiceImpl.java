@@ -45,7 +45,7 @@ public class DiaryServiceImpl implements DiaryService {
         entity.setDiaryName(baseName);
         // 生成地址
         String diaryDir = FilePathUtils.createDiaryDir(configVal.getFileMainTxtDir());
-        // 保持文件
+        // 保存文件
         FileUtis.saveMutFile(diary, diaryDir + File.separator + name);
         // 创建额外文件储存地址
         String dir = FilePathUtils.createExtDir(configVal.getFileExtFileDir(), name);

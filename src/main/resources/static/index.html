@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主目录</title>
+</head>
+<body>
+<div class="upload">
+    <button>点击上传</button>
+    <input type="file" style="display:none" class="fileDoms" onchange="fileDeomUpload()"/>
+</div>
+</body>
+<script language="javascript" type="text/javascript" src="./js/FileApi.js"></script>
+<script>
+    let btn = document.querySelector(".upload button")
+    const fileInputs = document.querySelector('.fileDoms')
+    btn.onclick = btnclick
+
+    function btnclick() {
+        fileInputs.click()
+    }
+
+    function fileDeomUpload(){
+        fileUpload(fileInputs.file[0])
+    }
+</script>
+</html>
